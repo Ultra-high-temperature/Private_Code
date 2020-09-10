@@ -1,7 +1,6 @@
 package javaTest;
 
 
-import test.stu;
 
 import java.util.ArrayList;
 
@@ -13,7 +12,6 @@ public class ListTest {
         }
         list.add("456");
         list.add(1);
-        list.add(new stu());
         System.out.println('1');
     }
 }
