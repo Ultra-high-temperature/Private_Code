@@ -1,7 +1,4 @@
-package hn;
-
-import java.util.ArrayList;
-import java.util.Collections;
+package javaTest;
 
 public class c6 {
     public String convert (String s, int nRows) {

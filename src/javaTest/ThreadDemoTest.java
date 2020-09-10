@@ -1,6 +1,4 @@
-package hn;
-import hn.ThreadDemo;
-
+package javaTest;
 
 
 public class ThreadDemoTest {

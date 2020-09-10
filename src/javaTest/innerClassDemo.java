@@ -1,4 +1,4 @@
-package hn;
+package javaTest;
 
 public class innerClassDemo {
     //类对象在哪里赋值 <init> ?
@@ -6,6 +6,6 @@ public class innerClassDemo {
 
     public static void main(String[] args) {
 
-        c9 a = hn.innerClassDemo.a;
+        c9 a = javaTest.innerClassDemo.a;
     }
 }

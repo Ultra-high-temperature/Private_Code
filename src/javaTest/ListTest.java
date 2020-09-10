@@ -1,4 +1,4 @@
-package hn;
+package javaTest;
 
 
 import test.stu;

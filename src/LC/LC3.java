@@ -1,4 +1,4 @@
-package hn;
+package LC;
 
 public class LC3 {
 
