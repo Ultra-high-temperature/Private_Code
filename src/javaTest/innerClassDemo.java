@@ -1,5 +1,7 @@
 package javaTest;
 
+import javaTest.c.c9;
+
 public class innerClassDemo {
     //类对象在哪里赋值 <init> ?
     public static c9 a = new c9();

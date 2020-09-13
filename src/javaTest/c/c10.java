@@ -1,4 +1,4 @@
-package javaTest;
+package javaTest.c;
 
 public class c10 {
     public boolean isMatch(String s, String p) {

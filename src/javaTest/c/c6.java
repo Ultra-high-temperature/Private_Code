@@ -1,4 +1,4 @@
-package javaTest;
+package javaTest.c;
 
 public class c6 {
     public String convert (String s, int nRows) {
