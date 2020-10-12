@@ -1,6 +1,5 @@
 package javaTest;
 
-import com.sun.org.apache.bcel.internal.util.ClassLoader;
 
 public class CustomClassLoader extends ClassLoader {
     /**
