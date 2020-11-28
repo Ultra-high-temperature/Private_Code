@@ -1,12 +1,13 @@
 package javaTest;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class CollectorsTest {
-    public static class User{
+    public static class User implements Serializable {
         public String name;
         public Integer age;
         public String tel;
