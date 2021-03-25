@@ -36,7 +36,6 @@ public class LC10 {
         LC10 lclc10 = new LC10();
         ListNode head = new ListNode(0);
         ListNode now = head;
-
         ListNode t = new ListNode(99);
         now.next = t;
         now = now.next;

@@ -5,15 +5,20 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class hashMapTest {
     public static void main(String[] args) {
+        String s = "123";
+//        s.equals()
         HashMap<Integer, String> map = new HashMap<>();
         map.put(123,"string1");
         map.get(123);
 
         Hashtable<Integer, String> map2 = new Hashtable<>();
-        map.put(123,"string1");
+        map2.put(123,"string1");
         map2.get(123);
 
         ConcurrentHashMap<Integer, String> map3 = new ConcurrentHashMap<>();
+        map3.put(123,"string1");
+        map3.get(123);
+
 
         Thread thread = new Thread(
                 new Runnable() {
