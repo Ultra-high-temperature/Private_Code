@@ -6,7 +6,6 @@ import java.util.concurrent.ConcurrentHashMap;
 public class hashMapTest {
     public static void main(String[] args) {
         String s = "123";
-//        s.equals()
         HashMap<Integer, String> map = new HashMap<>();
         map.put(123,"string1");
         map.get(123);
@@ -18,6 +17,7 @@ public class hashMapTest {
         ConcurrentHashMap<Integer, String> map3 = new ConcurrentHashMap<>();
         map3.put(123,"string1");
         map3.get(123);
+//        map3.putIfAbsent()
 
 
         Thread thread = new Thread(

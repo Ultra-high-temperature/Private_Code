@@ -1,11 +1,16 @@
 package javaTest;
 
+import java.util.concurrent.locks.ReentrantLock;
+
 public class SynchronizedTest implements Runnable{
     private static Integer count = 0;
     // 使用i++时并不能保证这是原子操作，因为有三步，取值，运算，赋值
     private static volatile int count2=0;
 
     public static void main(String[] args) throws InterruptedException {
+        ReentrantLock reentrantLock = new ReentrantLock();
+//        reentrantLock.lock();
+//
         for (int i = 0; i < 10; i++) {
             Thread thread = new Thread(new SynchronizedTest());
             thread.start();

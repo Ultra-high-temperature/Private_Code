@@ -5,7 +5,6 @@ public class quicksortTest {
     static void quicksort(int[] array, int start, int end) {
         int i = start;
         int j = end;
-//        boolean b = true; //true j 执行 ， false i 执行
         int begin = array[start];
         while (i != j) {
             while (array[j] >= begin && i < j) {
@@ -36,6 +35,31 @@ public class quicksortTest {
         if (i + 1 < end) {
             quicksort(array, i + 1, end);
         }
+    }
+
+    void quicksort(int l, int r,int[] nums)
+    {
+        if(l >= r){return;}
+        int pivot = nums[l];
+        int i = l; int j = r;
+        while(i < j)
+        {
+            while(nums[j] >= pivot &&i < j)
+            {
+                j--;
+            }
+            while(nums[i] <= pivot && i < j)
+            {
+                i++;
+            }
+            if(i<j){swap(nums,i,j);}
+        }
+        swap(nums,l, i);
+        quicksort(l,i-1,nums);
+        quicksort(i+1,r,nums);
+    }
+
+    private void swap(int[] nums, int i, int j) {
     }
 
     public static void main(String[] args) {

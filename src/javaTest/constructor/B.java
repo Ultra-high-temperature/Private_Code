@@ -13,7 +13,7 @@ public class B extends A{
         System.out.println("constructor b");
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args)  {
         A ab = new B();
         ab = new B();
 //        ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("text.txt"));
