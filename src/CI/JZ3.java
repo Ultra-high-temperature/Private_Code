@@ -6,11 +6,11 @@ import java.util.Stack;
 
 //https://www.nowcoder.com/practice/d0267f7f55b3412ba93bd35cfa8e8035
 public class JZ3 {
-    public class ListNode {
+    public static class ListNode {
         int val;
         ListNode next = null;
 
-        ListNode(int val) {
+        public ListNode(int val) {
             this.val = val;
         }
     }

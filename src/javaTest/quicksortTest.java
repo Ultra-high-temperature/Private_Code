@@ -37,13 +37,17 @@ public class quicksortTest {
         }
     }
 
-    void quicksort(int l, int r,int[] nums)
+    //实际上是用nums[l]作为基准点 ，l+1到相遇点为 小区间 ，相遇点+1到r为大区间
+    static void quicksort(int l, int r, int[] nums)
     {
         if(l >= r){return;}
         int pivot = nums[l];
         int i = l; int j = r;
         while(i < j)
         {
+            //为什么相遇点的值总是小于pivot？
+            // 因为下面这个for循环会不断地寻找小于pivot的值
+            //numb[i]的值恒小于pivot，每次找到不小于的都会触发swap 所以当j与i相遇时，相遇点的值恒小于pivot
             while(nums[j] >= pivot &&i < j)
             {
                 j--;
@@ -59,13 +63,17 @@ public class quicksortTest {
         quicksort(i+1,r,nums);
     }
 
-    private void swap(int[] nums, int i, int j) {
+    private static void swap(int[] numbers, int i, int j) {
+        int temp = numbers[i];
+        numbers[i] = numbers[j];
+        numbers[j] = temp;
     }
 
     public static void main(String[] args) {
         int[] array = {6, 5, 8, 9, 14, 2, 32, 7, 3, 9};
         int length = array.length;
-        quicksort(array, 0, length - 1);
+//        quicksort(array, 0, length - 1);
+        quicksort(0, length - 1,array);
         System.out.println();
     }
 }

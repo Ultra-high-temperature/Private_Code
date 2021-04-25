@@ -11,6 +11,8 @@ public class ListTest {
         Integer[] arr = {0,1,2,3};
 
         ArrayList<Integer> nums = new ArrayList<>(Arrays.asList(arr));
+        nums.size();
+
         nums.add(6);
         nums.add(0,4);
         nums.remove(1);

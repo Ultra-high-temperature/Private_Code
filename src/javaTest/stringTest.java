@@ -28,6 +28,9 @@ public class stringTest {
         s.append("");
         StringBuilder s2 = new StringBuilder();
         s2.append("");
+
+        String s1 = s2.toString();
+        s1.intern();
         return null;
     }
 }
