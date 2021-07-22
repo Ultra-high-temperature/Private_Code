@@ -4,7 +4,11 @@ public class JZ56 {
     // 在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，
     // 重复的结点不保留，返回链表头指针。
     // 例如，链表1->2->3->3->4->4->5 处理后为 1->2->5
-    public ListNode deleteDuplication(ListNode pHead) {
+
+    @Deprecated
+    //愚蠢的方案
+
+    public ListNode deleteDuplication0(ListNode pHead) {
         //新链表的末尾
         ListNode a = pHead;
         //可能会缀到新链表末尾的节点
@@ -40,12 +44,60 @@ public class JZ56 {
         return pHead;
     }
 
+    //三个指针
+    // tail 指向不重复链表的结尾
+    // temp 指向待添加的元素
+    // next 指向结尾
+    public ListNode deleteDuplication1(ListNode pHead) {
+        ListNode tempHead = new ListNode(-1);
+        tempHead.next = pHead;
+        ListNode tail = tempHead;
+        ListNode temp = tail.next;
+        ListNode next = temp.next;
+        while (next!=null){
+            if(temp.val!=next.val){
+                tail.next = temp;
+                tail = tail.next;
+                temp = temp.next;
+                next = next.next;
+            }else {
+                while (temp!=null&&temp.val==next.val){
+                    temp = temp.next;
+                }
+                if(temp == null){
+                    tail.next = null;
+                    return tempHead.next;
+                }
+                next = temp.next;
+            }
+        }
+        tail.next = temp;
+        return tempHead.next;
+    }
+    public ListNode deleteDuplication(ListNode pHead) {
+        ListNode temp = new ListNode(-1);
+        temp.next = pHead;
+        ListNode tail = temp;
+        while (pHead!=null){
+            if(pHead.next == null||pHead.next.val!=pHead.val){
+                tail.next = pHead;
+                tail = temp.next;
+            }else {
+                while (pHead.next!=null&&pHead.next.val==pHead.val){
+                    pHead = pHead.next;
+                }
+            }
+            pHead = pHead.next;
+        }
+        return temp.next;
+    }
+
     public static void main(String[] args) {
-        ListNode l1 = new ListNode(1);
-        ListNode l2 = new ListNode(2);
+        ListNode l1 = new ListNode(3);
+        ListNode l2 = new ListNode(3);
         ListNode l3 = new ListNode(3);
         ListNode l4 = new ListNode(3);
-        ListNode l5 = new ListNode(5);
+        ListNode l5 = new ListNode(3);
         l1.next = l2;
         l2.next = l3;
         l3.next = l4;
