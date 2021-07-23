@@ -5,10 +5,18 @@ public class JZ56 {
     // 重复的结点不保留，返回链表头指针。
     // 例如，链表1->2->3->3->4->4->5 处理后为 1->2->5
     public ListNode deleteDuplication(ListNode pHead) {
+
+        if(pHead==null){
+            return null;
+        }
+
+        ListNode tempHead = new ListNode(0);
+        tempHead.next = pHead;
+
         //新链表的末尾
-        ListNode a = pHead;
+        ListNode a = tempHead;
         //可能会缀到新链表末尾的节点
-        ListNode temp = pHead.next;
+        ListNode temp = tempHead.next;
         ListNode b = temp.next;
 
         //标记temp是否能缀到链表末尾
@@ -34,10 +42,14 @@ public class JZ56 {
                 }
             }
         }
-        if(temp.next.val == temp.val){
+        if (temp.next == null) {
+            return tempHead.next;
+        }
+        if (temp.next.val == temp.val) {
             a.next = null;
         }
-        return pHead;
+        return tempHead.next;
+
     }
 
     public static void main(String[] args) {
