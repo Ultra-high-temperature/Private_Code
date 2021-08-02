@@ -9,10 +9,18 @@ public class JZ56 {
     //愚蠢的方案
 
     public ListNode deleteDuplication0(ListNode pHead) {
+
+        if(pHead==null){
+            return null;
+        }
+
+        ListNode tempHead = new ListNode(0);
+        tempHead.next = pHead;
+
         //新链表的末尾
-        ListNode a = pHead;
+        ListNode a = tempHead;
         //可能会缀到新链表末尾的节点
-        ListNode temp = pHead.next;
+        ListNode temp = tempHead.next;
         ListNode b = temp.next;
 
         //标记temp是否能缀到链表末尾
@@ -38,10 +46,14 @@ public class JZ56 {
                 }
             }
         }
-        if(temp.next.val == temp.val){
+        if (temp.next == null) {
+            return tempHead.next;
+        }
+        if (temp.next.val == temp.val) {
             a.next = null;
         }
-        return pHead;
+        return tempHead.next;
+
     }
 
     //三个指针
@@ -74,6 +86,8 @@ public class JZ56 {
         tail.next = temp;
         return tempHead.next;
     }
+
+    //优化版，虽然没什么用
     public ListNode deleteDuplication(ListNode pHead) {
         ListNode temp = new ListNode(-1);
         temp.next = pHead;
