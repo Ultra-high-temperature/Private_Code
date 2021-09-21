@@ -34,7 +34,23 @@ public class LB10 {
         }
         for (int x = 0; x < xMax; x+=3) {
             for (int y = 0; y <yMax; y+=3) {
-                
+                if(check(x,y,board) == false){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    boolean check(int x , int y,char[][] board){
+        HashSet<Character> set = new HashSet<>();
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if(board[x+i][y+j]=='.') continue;
+                if(set.contains(board[x+i][y+j])){
+                    return false;
+                }else {
+                    set.add(board[x+i][y+j]);
+                }
             }
         }
         return true;
@@ -43,6 +59,7 @@ public class LB10 {
     public static void main(String[] args) {
         char[][] chars = {{'1', '2', '3'},{'4', '5', '6'},{'7', '8', '9'}};
         LB10 lb10 = new LB10();
-        lb10.isValidSudoku(chars);
+        final boolean validSudoku = lb10.isValidSudoku(chars);
+        System.out.printf("");
     }
 }
