@@ -1,5 +1,6 @@
 package javaTest;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -8,7 +9,10 @@ import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class MyGroupByCollector<T, R extends Map<T, Integer>> implements Collector {
+//public class MyGroupByCollector<T,A, R extends Map<T, Integer>> implements Collector {
+public class MyGroupByCollector<T> implements Collector<T, MyGroupByCollector.GroupClass, Map<T, Integer>> {
+
+    private static final Set<Characteristics> characteristics = Collections.emptySet();
 
     @Override
     public Supplier<MyGroupByCollector.GroupClass> supplier() {
@@ -16,7 +20,7 @@ public class MyGroupByCollector<T, R extends Map<T, Integer>> implements Collect
     }
 
     @Override
-    public BiConsumer<MyGroupByCollector.GroupClass,T> accumulator() {
+    public BiConsumer<MyGroupByCollector.GroupClass, T> accumulator() {
         return MyGroupByCollector.GroupClass::append;
     }
 
@@ -26,26 +30,29 @@ public class MyGroupByCollector<T, R extends Map<T, Integer>> implements Collect
     }
 
     @Override
-    public Function<MyGroupByCollector.GroupClass,Map<T, Integer>> finisher() {
+    public Function<MyGroupByCollector.GroupClass, Map<T, Integer>> finisher() {
         return MyGroupByCollector.GroupClass::getMap;
     }
 
     @Override
     public Set<Characteristics> characteristics() {
-        return null;
+        return characteristics;
     }
 
     class GroupClass {
 
-        public GroupClass(){};
+        public GroupClass() {
+        }
+
+        ;
         public Map<T, Integer> map = new HashMap();
 
         public void append(T t) {
             Integer integer = map.computeIfAbsent(t, (v) -> 0);
-            map.put(t,integer+1);
+            map.put(t, integer + 1);
         }
 
-        public GroupClass merge(GroupClass groupClass){
+        public GroupClass merge(GroupClass groupClass) {
             Map<T, Integer> hashMap = groupClass.map;
             Map<T, Integer> collect = Stream.of(map, hashMap)
                     .flatMap(m -> m.entrySet().stream())
@@ -58,7 +65,7 @@ public class MyGroupByCollector<T, R extends Map<T, Integer>> implements Collect
             return this;
         }
 
-        public Map<T, Integer> getMap(){
+        public Map<T, Integer> getMap() {
             return map;
         }
     }
