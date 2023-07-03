@@ -51,9 +51,9 @@ public class streamTest {
         System.out.printf("" + addUp(integers.stream()));
 
         System.out.printf("\n获取hashcode和执行tostring的数据\n");
-        getHashCodeAndNumber(integers2);
-
-        convertList();
+//        getHashCodeAndNumber(integers2);
+//
+//        convertList();
     }
 
     static int addUp(Stream<Integer> numbers) {
@@ -116,7 +116,7 @@ public class streamTest {
         Stream<String> names = Stream.of("John", "Paul", "George", "John",
                 "Paul", "John");
 
-        Map<String, Long> collect = names.collect(groupingBy(n -> n, counting()));
+//        Map<String, Long> collect = names.collect(groupingBy(n -> n, counting()));
 
         String s1 = names.reduce(new StringBuilder("["), ((stringBuilder, s) -> {
             if (stringBuilder.length() > 0) {
@@ -130,11 +130,7 @@ public class streamTest {
     }
 
 
-    static void myGroupBytest(){
-        Stream<String> names = Stream.of("John", "Paul", "George", "John",
-                "Paul", "John");
-        names.collect(new MyGroupByCollector<>());
-    }
+
 
 
 }
